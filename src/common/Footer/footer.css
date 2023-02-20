@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.foot-main{
+    height: 50px;
+    background-color: #45b2de66;
+}
+
+ul{
+    display: flex;
+    justify-content: center;
+}
+
+li{
+    list-style: none;
+    margin-top: 20px;
+    margin-left: 80px;
+    margin-right: 80px;
+ }
+
+ a{
+    text-decoration: none;
+    font-size: 20px;
+    width: 40px;
+    color: black;
+ }
+ 
