@@ -18,7 +18,7 @@ export default function blog() {
         <CardActionArea>
           <CardMedia
             component="img"
-            height="140"
+            height="130"
             image= {item.poster}
             alt="green iguana"
           />
