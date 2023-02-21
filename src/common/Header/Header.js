@@ -1,12 +1,15 @@
 import React from 'react'
 import './Header.css'
-
+import logo from './Logo.jpg'
+import profile from './profile pic.webp' 
 export default function Header() {
   return (
     <div>
         <div className='head-main'>
             <div className="head-lf">
-              <h3>LOGO</h3>
+  
+                <img src= {logo}  className='logo' alt='logo'></img>
+                 
             </div>
             <div className="head-mid">
               <ul>
@@ -16,7 +19,7 @@ export default function Header() {
               </ul>
             </div>
             <div className="head-rt">
-              <h3>Profile</h3>
+              <img src={profile} className="logo" alt='profile-picture'></img>
             </div>
         </div>
     </div>
