@@ -4,6 +4,7 @@ import Header from '../../common/Header/Header'
 import About from '../about/About'
 import Blog from './Blog.js'
 import './Home.css'
+import Slider from './Slider'
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
         <Header/>
         <div style={{backgroundColor:"#b7d4e059"}}>
           <About/>
+          <Slider/>
         <Blog></Blog>
         </div>
         <Footer/>
