@@ -1,7 +1,7 @@
 .blog-container { 
     padding-top: 1%;
     height: 67%;
-    display: grid;
+    display: flex;
     gap: 2px;
     grid-auto-flow: column;
     grid-auto-columns: 25%;
