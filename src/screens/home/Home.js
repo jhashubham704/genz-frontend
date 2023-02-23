@@ -5,6 +5,7 @@ import About from '../about/About'
 import Blog from './Blog.js'
 import './Home.css'
 import Slider from './Slider'
+import Experts from './Experts/Experts'
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
           <About/>
           <Slider/>
         <Blog></Blog>
+        <Experts/>
         </div>
         <Footer/>
     </div>
