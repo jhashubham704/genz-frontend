@@ -10,14 +10,12 @@ import Experts from './Experts/Experts'
 export default function Home() {
   return (
     <div>
-        <Header/>
+        
         <div style={{backgroundColor:"#b7d4e059"}}>
           <About/>
           <Slider/>
-        <Blog></Blog>
-        <Experts/>
+        <Blog/>
         </div>
-        <Footer/>
     </div>
   )
 }

@@ -24,10 +24,10 @@ export default function Experts() {
             </div>
 
           <div className='textbox'>
-            <h2> {item.name}</h2><br></br>
-            <h3>{item.age}</h3> <br></br>
-            <h3>{item.occupation}</h3> <br></br>
-            <h3>{item.hobbies}</h3> <br></br>
+            <h3> {item.name}</h3><br></br>
+            <h4>{item.age}</h4> <br></br>
+            <h4>{item.occupation}</h4> <br></br>
+            <h4>{item.hobbies}</h4> <br></br>
             <p>{item.summary}</p> <br></br>
          </div>        
           <div className='buttons'>

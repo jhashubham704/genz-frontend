@@ -13,9 +13,9 @@ export default function Header() {
             </div>
             <div className="head-mid">
               <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Chat</a></li>
-                <li><a href="#">Experts</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/Chats">Chat</a></li>
+                <li><a href="/Experts">Experts</a></li>
               </ul>
             </div>
             <div className="head-rt">
