@@ -3,9 +3,13 @@ import './Experts.css'
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
+import Header from '../../../common/Header/Header';
+import Footer from '../../../common/Footer/Footer';
 
 export default function Experts() {
   return (
+    <div>
+    <Header/>
     <div className='experts-container'>
      <h1> 
         Our List of Experts will help you resolve your queries related to stress Anxiety/Depression or any other 
@@ -35,6 +39,8 @@ export default function Experts() {
         )
         }) }
 
+    </div>
+    <Footer></Footer>
     </div>
   )
 }
