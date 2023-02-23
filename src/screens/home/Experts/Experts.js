@@ -9,13 +9,15 @@ import Footer from '../../../common/Footer/Footer';
 export default function Experts() {
   return (
     <div>
-    <Header/>
+      <div>
+      <Header/>
+      </div>
     <div className='experts-container'>
-     <h1> 
+     <h3> 
         Our List of Experts will help you resolve your queries related to stress Anxiety/Depression or any other 
         mental Issues you are currently going through. 
 
-     </h1>
+     </h3> 
        {Expertsdata.map((item)=>{ 
         return(
         <div className='expert-bar'>
@@ -24,10 +26,10 @@ export default function Experts() {
             </div>
 
           <div className='textbox'>
-            <h3> {item.name}</h3><br></br>
-            <h4>{item.age}</h4> <br></br>
-            <h4>{item.occupation}</h4> <br></br>
-            <h4>{item.hobbies}</h4> <br></br>
+            <h4> {item.name}</h4><br></br>
+            <p>{item.age}</p> 
+            <p>{item.occupation}</p> 
+            <p>{item.hobbies}</p> 
             <p>{item.summary}</p> <br></br>
          </div>        
           <div className='buttons'>
@@ -40,7 +42,7 @@ export default function Experts() {
         }) }
 
     </div>
-    <Footer></Footer>
+    {/* <Footer/> */}
     </div>
   )
 }

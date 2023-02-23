@@ -3,21 +3,30 @@
    height: 40%;
    width: 100% ;
    padding: 2%;
-   background-color: #e6f0f4;
+   background-color: white;
    font-family: 'Nunito Sans', sans-serif;
+   font-size: 20px;
+   
+}
+.experts-container h3{
+    font-size: 25px;
+    width: 60%;
+    margin: auto;
+    margin-top: 50px;
 }
 .expert-bar { 
+    color: white;
  display: flex;
- margin-left: 20%;
- margin-right: 20%;
- margin-top: 10px;
- height: 220px;
- width: 70%;
- background-color:  #548fad;
+ /* margin-left: 20%; */
+ /* margin-right: 20%; */
+ margin-top: 10px; 
+ height: 350px;
+ width: 100%;
+ background-color:  #649cbc;
  border: #e6f0f4;
  border: 1px;
  box-shadow: 10px;
- border-radius: 10%;
+ border-radius: 5%;
  font-family: 'Nunito Sans', sans-serif;
 
 }
@@ -25,8 +34,8 @@
 .expert-profile{ 
     display: block;
     margin: 1%;
-    width: 30%;
-    height: 90%;
+    width: 10%;
+    height: 50%;
 }
 
 .profile-img { 
@@ -40,13 +49,15 @@
     max-height: 90%;
     box-sizing: border-box;
     border: 1px;
-    text-size-adjust: auto;
+    /* text-size-adjust: auto; */
     padding: 1%;
     font-family: 'Nunito Sans', sans-serif;
+    font-size: 20px;
 }
 
-.Buttons { 
+.buttons { 
     width: 10%;
-    margin-top: 50%;
-    align-self: center;
+    margin-top: 80px;
+    /* align-self: center; */
 }
+
