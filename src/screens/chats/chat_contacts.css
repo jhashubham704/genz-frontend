@@ -1,0 +1,53 @@
+.contacts-list { 
+ background-color: "#b7d4e059";
+ width: 30%;
+ display: block;
+ padding: 5px;
+ padding-top: 35px;
+ overflow-y: scroll;
+}
+.contacts-banner { 
+    height: 100px;
+    background-color: #548fad;
+    padding-top: 35px;
+    width: 28%;
+    box-shadow: 5px 5px #979797;
+    border-radius: 1%;
+    position: fixed;
+}
+
+.contacts-banner h1{ 
+    margin-top: 5px;
+    color: white;
+}
+
+.contacts { 
+    width: 100%;
+    display: block;
+    padding-top: 115px;
+    
+}
+
+.contact-card { 
+   display: flex; 
+   margin: 1px;
+   border-color: black;
+   border: 2px;
+   box-shadow: 2px;
+   height: 100px;
+}
+
+.contact-card :hover { 
+   background-color: #C5C5C5;
+ }
+.profile-img { 
+    object-fit: contain;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+.contacts-text { 
+    display: block;
+    width: 100%;
+    align-items: center;
+}

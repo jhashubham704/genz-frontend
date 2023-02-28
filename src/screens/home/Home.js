@@ -15,6 +15,7 @@ export default function Home() {
           <About/>
           <Slider/>
         <Blog/>
+
         </div>
     </div>
   )

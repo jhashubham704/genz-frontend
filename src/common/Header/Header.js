@@ -20,6 +20,7 @@ export default function Header() {
             </div>
             <div className="head-rt">
               <img src={profile} className="logo" alt='profile-picture'></img>
+              {console.log(window.location.pathname)}
             </div>
         </div>
     </div>

@@ -1,28 +1,22 @@
+import { display } from '@mui/system'
 import React from 'react'
-import Footer from './common/Footer/Footer';
+import { Routes, Route } from "react-router-dom"
+import Footer from './common/Footer/Footer'
 import Header from './common/Header/Header'
-import Experts from './screens/home/Experts/Experts';
-import Home from './screens/home/Home';
+import Chats from './screens/chats/Chats'
+import Experts from './screens/home/Experts/Experts'
+import Home from './screens/home/Home'
 
-export default function 
-() {
-    let component ; 
-    switch( window.location.pathname) { 
-        case "/": 
-        component = <Home/> 
-        break
-        case "/Chat": 
-        component =<Home/> 
-        break
-        case "/Experts": 
-        component = <Experts/>
-        break
-    }
+export default function App() {
   return (
-    <div>
-        <Header/>
-        {component}
-        <Footer/>
+    <div className='App' style={{width:"100%" , height: "100%" ,display:"block"}}>
+      <Header/>
+       <Routes>
+        <Route path="/" element={ <Home/> } />
+        <Route path="chats" element={ <Chats/> } />
+        <Route path="experts" element={ <Experts/> } />
+      </Routes>
+      
     </div>
   )
 }

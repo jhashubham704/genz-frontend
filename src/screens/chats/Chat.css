@@ -1,0 +1,10 @@
+.main-container { 
+    width: 100%;
+    display: flex; 
+    border: 1px;
+}
+.contacts-container { 
+    width: 30%;
+    border: 1px;
+    
+}
