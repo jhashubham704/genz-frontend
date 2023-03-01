@@ -22,7 +22,7 @@ export default function Chat_window(props) {
   return (
     <div className='chat-window'>
         <div className='chat-banner'>
-           <h2>{name} </h2>
+           <h3>{name} </h3>
         </div>
 
         <div className='chat-box'> 

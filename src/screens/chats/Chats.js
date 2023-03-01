@@ -4,9 +4,11 @@ import './Chats.css'
 import Chat_contacts from './Chat_contacts.js'
 import Chat_window from './Chat_window'
 import { useState } from 'react'
+import Login from './Login'
 
 export default function Chats() {
-
+ 
+  const [loggedin , setLoggedin] = useState("false")
   const [contact , setContact] = useState(null)
   console.log(contact);
 
@@ -15,13 +17,16 @@ export default function Chats() {
     console.log(item.item) ; 
   }
 
+  const loginhandler =(value)=> { 
+      setLoggedin(value) ; 
+  }
+
   return (
     <div  style={{width:"100%"  , height:"100%" , display:"block" }}>
-        <div style={{display:"flex"}}>
-        <Chat_contacts setChatScreen= {setChatScreen}/>
-        <Chat_window  value={contact} />
+        
+        {(loggedin==="false")?(<Login loginhandler={loginhandler} />) : (<div style={{display:"flex"}}> <Chat_contacts setChatScreen= {setChatScreen}/>
+        <Chat_window  value={contact} /></div>)}
 
-        </div>
     </div>
   )
 }

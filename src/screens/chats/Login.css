@@ -1,0 +1,34 @@
+.login-card { 
+    width: 500px;
+    height: 350px;
+    margin-left: 35%;
+    margin-right: 20%;
+    margin-top: 171px;
+    align-items: center;
+    box-sizing: border-box;
+    border-radius: 2%;
+    border-color: #D9DDDC;
+    box-shadow: 5px 5px 5px 5px #C7C6C1;
+    padding-top: 30px;
+    padding-left: 15px;
+}
+
+.login-card h3{ 
+    font-family: 'Heebo', sans-serif;
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 35px;
+}
+
+.loginform { 
+    font-family: 'Heebo', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+.loginform input{ 
+ height: 50px;
+ width: 400px;
+ border-color:#e7e7e7 ;
+ background-color: #D9DDDC;
+ margin: 30px;
+}

@@ -8,7 +8,7 @@
 }
 
 .chat-banner { 
-    height: 100px;
+    height: 95px;
     background-color: #e7e7e7;
     padding-top: 35px;
     margin-left: 2px;
@@ -17,8 +17,15 @@
     border: 1%;
     width: 70%;
     position: fixed;
+    align-items: last baseline;
 }
-
+.chat-banner h3{ 
+    color: black;
+    padding-top: 30px;
+    padding-left: 20px;
+    font-family: 'Heebo', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
 .chat-box{ 
     height: 400px; 
     width: 95%;
