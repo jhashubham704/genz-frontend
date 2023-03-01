@@ -4,23 +4,11 @@ import Button from '@mui/material/Button';
 
 export default function Chat_contacts(props) {
 
-  const [contact , setContact] = useState({ 
-    
-    "id":"a2" ,
-    "name":"Tony Stark" , 
-    "status":"the truth is..I am iron man", 
-    "profile": "https://wellgroomedgentleman.com/media/images/Tony_Stark_Beard_with_Quiff_Hairstyle.width-800.jpg",
-    "messages": { 
-    "from": "null",
-    "to": "null",
-    "message":"null"
-  }
-  } )
 
   const startChat = (item)=> { 
    props.setChatScreen({item}) ; 
+   console.log(item);
   }
-
   return (
     <div className='contacts-list'>
         <div className='contacts-banner' >
@@ -30,7 +18,7 @@ export default function Chat_contacts(props) {
           { 
              contacts.map((item)=>{ 
               return(
-                <div className='contact-card' onClick={()=>startChat(item)}>
+                <div className='contact-card' onClick={()=>startChat(item.id)}>
                   <img className='profile-img' src={item.profile}></img>
                   <div className='contacts-text'>
                 <h2>{item.name}</h2>
