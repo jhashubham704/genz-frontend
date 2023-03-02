@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Button from '@mui/material/Button';
 import './Login.css'
+import Footer from '../../common/Footer/Footer'
 export default function Login(props) {
 
     const userData = [
@@ -31,14 +32,17 @@ export default function Login(props) {
       console.log(userData) ; 
      }
   return (
+    <div className='login-container'>
     <div className='login-card'>
         <h3>Please login to chat!</h3>
         <form className='loginform'> 
             <input type="text" placeholder="name" onChange={(e)=> {setTempname(e.target.value)}}></input>
             <br></br>
-            <input type="password" onChange={(e)=> {setTempass(e.target.value)}} ></input>
+            <input type="password" placeholder="password" onChange={(e)=> {setTempass(e.target.value)}} ></input>
         </form>
         <Button variant="text" onClick={setLogindata}>login</Button>
+    </div>
+      <Footer/>
     </div>
   )
 }
