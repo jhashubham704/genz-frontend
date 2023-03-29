@@ -14,7 +14,7 @@ export default function Home() {
         <div style={{backgroundColor:"#b7d4e059"}}>
           <About/>
           <Slider/>
-        <Blog/>
+          <Blog/>
 
         </div>
     </div>
