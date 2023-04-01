@@ -1,0 +1,42 @@
+.register-card { 
+    width: 500px;
+    height: 340px;
+    margin-left: 30%;
+    margin-right: 20%;
+    margin-top: 123px;
+    align-items: center;
+    box-sizing: border-box;
+    border-radius: 2%;
+    border-color: #D9DDDC;
+    box-shadow: 5px 5px 5px 5px #C7C6C1;
+    padding-top: 2px;
+    padding-left: 15px;
+    background-color: #548fad;
+    margin-bottom: 50px;
+    }
+
+    .register-container { 
+        padding-top: 50px;
+        background-color: #e6f0f4;
+    }
+
+.register-card h3{ 
+    font-family: 'Heebo', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    color: #e6f0f4;
+    font-size: 35px;
+}
+
+.registerform { 
+    font-family: 'Heebo', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+.registerform input{ 
+ height: 50px;
+ width: 400px;
+ border-color: #e6f0f4 ;
+ background-color:  #e6f0f4;
+ margin: 5px;
+ margin-left: 30px;
+}
