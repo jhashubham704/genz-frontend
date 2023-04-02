@@ -9,7 +9,7 @@ import { display } from '@mui/system'
 
 export default function Chats() {
  
-  const [loggedin , setLoggedin] = useState("false")
+  const [loggedin , setLoggedin] = useState(false)
   const [contact , setContact] = useState(null)
   console.log(contact);
 
@@ -20,12 +20,13 @@ export default function Chats() {
 
   const loginhandler =(value)=> { 
       setLoggedin(value) ; 
+      console.log(value);
   }
-
+console.log({loggedin});
   return (
     <div  style={{width:"100%"  , height:"100%" , display:"block" }}>
         
-        {(loggedin==="false")?(<Login loginhandler={loginhandler} />) : (<div style={{display:"flex"}}> <Chat_contacts setChatScreen= {setChatScreen}/>
+        {(loggedin===false)?(<Login loginhandler={loginhandler} />) : (<div style={{display:"flex"}}> <Chat_contacts setChatScreen= {setChatScreen}/>
         <Chat_window  value={contact} /></div>)}
 
     </div>

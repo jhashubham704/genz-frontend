@@ -6,6 +6,7 @@ import Header from './common/Header/Header'
 import Chats from './screens/chats/Chats'
 import Experts from './screens/home/Experts/Experts'
 import Home from './screens/home/Home'
+import Register from './screens/chats/Register'
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
        <Routes>
         <Route path="/" element={ <Home/> } />
         <Route path="chats" element={ <Chats/> } />
+        <Route path="register" element={ <Register/> } />
         <Route path="experts" element={ <Experts/> } />
       </Routes>
       

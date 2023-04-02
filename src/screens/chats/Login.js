@@ -5,18 +5,19 @@ import Footer from '../../common/Footer/Footer'
 import './Register'
 import Register from './Register';
 import Alert from '@mui/material/Alert';
+import { Link } from "react-router-dom";
 
 
 export default function Login(props) {
 
   const [temppass, setTemppass] = useState("");
   const [tempemail, setTempemail] = useState("")
-  const [signup, setsignup] = useState("false")
+  const [signedup, setsignedup] = useState(true)
   const [value, setValue] = useState("")
   const [data, useData] = useState()
-
+ 
   const setLogindata = async () => {
-    let result = await fetch('http://localhost:5001/login', {
+    let result = await fetch('http://localhost:8085/login', {
       method: 'Post',
       body: JSON.stringify({ email: tempemail, password: temppass }),
       headers: {
@@ -24,13 +25,15 @@ export default function Login(props) {
       },
     });
     result = await result.json();
-    if (result.password === temppass && result.email === tempemail) {
-      setValue("true");
+    console.log(result.res);
+    if (result.res === true) {
+      props.loginhandler(true)
     }
     else {
-      setValue("false");
+      props.loginhandler(false)
+
+
     }
-    props.loginhandler(value);
     console.log(value)
   }
   const setalert = () => {
@@ -44,7 +47,7 @@ export default function Login(props) {
 
   return (
     <div>
-      {(signup === "false") ? (<div>
+      {(signedup === true) ? (<div>
         <div className='login-container'>
           <div className='login-card'>
             <h3>Please login to chat!</h3>
@@ -53,7 +56,7 @@ export default function Login(props) {
               <br></br>
               <input type="password" placeholder="password" onChange={(e) => { setTemppass(e.target.value) }} ></input>
             </form>
-            <Button variant="contained" color="success" onClick={setLogindata}>login</Button>  <Button variant="contained" color="success" onClick={() => setsignup("true")}>Signup</Button>
+            <Button variant="contained" color="success" onClick={setLogindata}>login</Button>  <Link to="/register"  variant="contained" color="success" >Signup</Link>
             <div> {setalert()} </div>
           </div>
           <Footer />
