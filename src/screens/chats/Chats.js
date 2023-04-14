@@ -10,12 +10,19 @@ import { display } from '@mui/system'
 export default function Chats() {
  
   const [loggedin , setLoggedin] = useState(false)
-  const [contact , setContact] = useState(null)
+  const [contact , setContact] = useState({
+    _id:"", 
+    name:"",
+   email:"",
+password:"",
+phone:"",
+
+  })
   console.log(contact);
 
   const setChatScreen=(item)=> {
-    setContact(item.item)
-    console.log(item.item) ; 
+    setContact(item)
+    console.log(item) ; 
   }
 
   const loginhandler =(value)=> { 

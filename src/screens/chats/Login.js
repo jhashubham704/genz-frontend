@@ -6,18 +6,21 @@ import './Register'
 import Register from './Register';
 import Alert from '@mui/material/Alert';
 import { Link } from "react-router-dom";
+import { useContext, createContext} from 'react';
+import Chat_window from './Chat_window';
+import Chat_contacts from './Chat_contacts';
 
 
 export default function Login(props) {
 
   const [temppass, setTemppass] = useState("");
   const [tempemail, setTempemail] = useState("")
+  const [currentuser , setcurrentuser]= useState([]) 
   const [signedup, setsignedup] = useState(true)
-  const [value, setValue] = useState("")
   const [data, useData] = useState()
  
   const setLogindata = async () => {
-    let result = await fetch('http://localhost:8085/login', {
+    let result = await fetch('http://localhost:5001/login', {
       method: 'Post',
       body: JSON.stringify({ email: tempemail, password: temppass }),
       headers: {
@@ -25,29 +28,25 @@ export default function Login(props) {
       },
     });
     result = await result.json();
-    console.log(result.res);
-    if (result.res === true) {
-      props.loginhandler(true)
+    console.log(result);
+    if (result.password === temppass) {
+      props.loginhandler(true,tempemail)
+      useEffect(() => {
+        localStorage.setItem('currentuser', JSON.stringify(currentuser));
+      }, [currentuser]);
+      console.log(localStorage.getItem(currentuser)) ; 
     }
     else {
       props.loginhandler(false)
 
 
     }
-    console.log(value)
-  }
-  const setalert = () => {
-    if (value === "false") {
-      return (<Alert severity="error">This is an error alert — check it out!</Alert>)
     }
-    else {
-      return (<div></div>)
-    }
-  }
+  
 
   return (
     <div>
-      {(signedup === true) ? (<div>
+      <div>
         <div className='login-container'>
           <div className='login-card'>
             <h3>Please login to chat!</h3>
@@ -57,12 +56,12 @@ export default function Login(props) {
               <input type="password" placeholder="password" onChange={(e) => { setTemppass(e.target.value) }} ></input>
             </form>
             <Button variant="contained" color="success" onClick={setLogindata}>login</Button>  <Link to="/register"  variant="contained" color="success" >Signup</Link>
-            <div> {setalert()} </div>
           </div>
           <Footer />
         </div>
-      </div>) : (<Register />)
-      }
+      </div> 
+    
+      
     </div>
   )
 }

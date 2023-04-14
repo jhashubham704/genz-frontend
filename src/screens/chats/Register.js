@@ -24,7 +24,7 @@ export default function Register(props) {
 
      const setLogindata=async ()=> { 
 
-      let result = await fetch('http://localhost:8085/register' , { 
+      let result = await fetch('http://localhost:5001/register' , { 
         method:'Post',
         body:JSON.stringify({name:tempname,email:tempemail,password:temppass,phone:tempnumber}) ,
         headers:{ 

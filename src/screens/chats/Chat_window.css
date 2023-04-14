@@ -29,8 +29,9 @@
 .chat-box{ 
     height: 400px; 
     width: 95%;
-    padding-top: 111px;
+    margin-top: 111px;
     position: fixed;
+    overflow-y: scroll;
 }
 
 .textbox{ 
@@ -38,6 +39,35 @@
     position: fixed;
     width: 80%;
     display: flex;
+}
+
+.received{ 
+    display: block;
+}
+.sent { 
+    display: block;
+}
+.received-m { 
+    border: 2px;
+    background-color: #e7e7e7;
+    display: block;
+    border-radius: 5%;
+    width: 30%;
+    float: left;
+    margin-top: 5%;
+
+}
+
+.sent-m { 
+    border: 2px;
+    background-color: #e7e7e7;
+    display: block;
+    width: 30%;
+    border-radius: 2%;
+    margin-right: 30%;
+    float: right;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 
 .text-field { 

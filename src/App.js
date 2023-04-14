@@ -7,6 +7,7 @@ import Chats from './screens/chats/Chats'
 import Experts from './screens/home/Experts/Experts'
 import Home from './screens/home/Home'
 import Register from './screens/chats/Register'
+import Login from './screens/chats/Login'
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="chats" element={ <Chats/> } />
         <Route path="register" element={ <Register/> } />
         <Route path="experts" element={ <Experts/> } />
+        <Route path="Login" element={ <Login/> } />
       </Routes>
       
     </div>
