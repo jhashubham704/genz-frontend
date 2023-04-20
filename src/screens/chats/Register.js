@@ -15,9 +15,6 @@ export default function Register(props) {
      const[value, setValue] = useState("true") 
     const[data , useData] = useState()
 
-    const location = useLocation();
-    const propsData = location.state;
-    console.log(propsData);
 
 
   const [signedup, setsignedup] = useState(false)
@@ -32,7 +29,8 @@ export default function Register(props) {
         }, 
       }) ; 
       result = await result.json() ; 
-      console.log(result) ; 
+      console.log(result) ;
+      localStorage.setItem("user", JSON.stringify(result)) ;  
       setsignedup(true)
      }
      

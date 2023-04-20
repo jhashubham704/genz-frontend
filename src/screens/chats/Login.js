@@ -1,24 +1,29 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Button from '@mui/material/Button';
 import './Login.css'
 import Footer from '../../common/Footer/Footer'
 import './Register'
 import Register from './Register';
 import Alert from '@mui/material/Alert';
-import { Link } from "react-router-dom";
+
+import { Link, useNavigate } from "react-router-dom";
 import { useContext, createContext} from 'react';
 import Chat_window from './Chat_window';
 import Chat_contacts from './Chat_contacts';
-
 
 export default function Login(props) {
 
   const [temppass, setTemppass] = useState("");
   const [tempemail, setTempemail] = useState("")
-  const [currentuser , setcurrentuser]= useState([]) 
-  const [signedup, setsignedup] = useState(true)
-  const [data, useData] = useState()
- 
+  const Navigate = useNavigate() ; 
+
+  useEffect(()=> { 
+    const auth = localStorage.getItem('user'); 
+    if(auth){ 
+      Navigate('/') ; 
+    }
+  })
+
   const setLogindata = async () => {
     let result = await fetch('http://localhost:5001/login', {
       method: 'Post',
@@ -30,17 +35,14 @@ export default function Login(props) {
     result = await result.json();
     console.log(result);
     if (result.password === temppass) {
-      props.loginhandler(true,tempemail)
-      useEffect(() => {
-        localStorage.setItem('currentuser', JSON.stringify(currentuser));
-      }, [currentuser]);
-      console.log(localStorage.getItem(currentuser)) ; 
+      props.loginhandler(true)
+      Navigate("/chats") ; 
     }
+    
     else {
       props.loginhandler(false)
-
-
     }
+    localStorage.setItem("user", JSON.stringify(result)) ; 
     }
   
 

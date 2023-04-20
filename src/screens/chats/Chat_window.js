@@ -8,13 +8,11 @@ import SendIcon from '@mui/icons-material/Send';
 import { borderColor } from '@mui/system';
 import { useContext ,usercontext } from 'react';
 
+
 export default function Chat_window(props) {
 
-
-
-  console.log(props.value);
-  let name;
-  const [sender,setSender]= useState(props.user) ; 
+  let user = JSON.parse(localStorage.getItem('user'))  ; 
+  let selectedcontact = JSON.parse(localStorage.getItem('selected_user')); 
   const [message,setmessage] = useState("") ; 
   const [contactslist,setcontactslist] = useState([]); 
   const[received, setreceived] = useState([]);
@@ -37,9 +35,6 @@ export default function Chat_window(props) {
 
     }
 , []);
-
-
-  
  useEffect(()=> { 
    const api = "http://localhost:5002/readmessges";
   
@@ -47,7 +42,7 @@ export default function Chat_window(props) {
     try{ 
       let receivedmessages = await fetch(api,{ 
         method: 'post',
-        body: JSON.stringify({ from: name, to: sender }),
+        body: JSON.stringify({ from: user.email, to: selectedcontact.email }),
         headers: {
           'Content-type': 'Application/json'
         },
@@ -65,7 +60,7 @@ export default function Chat_window(props) {
     try{ 
       let sentmessages = await fetch(api,{ 
         method: 'post',
-        body: JSON.stringify({ from: sender, to: name }),
+        body: JSON.stringify({ from: selectedcontact.email, to: user.email }),
         headers: {
           'Content-type': 'Application/json'
         },
@@ -82,20 +77,10 @@ export default function Chat_window(props) {
    fetchsentmessages(); 
  },[]); 
 
-
-  { 
-   contactslist.map((item)=>{ 
-  if (item.email===props.value.email) {
-     name = item.name;
-    console.log(name);
-    }
-   })
-}
-
  const sendmessage = async()=> { 
     let result = await fetch('http://localhost:5002/sendmessage', {
         method: 'Post',
-        body: JSON.stringify({ from: sender, to: name ,message: message, time :Date.now()  }),
+        body: JSON.stringify({ from: user.email, to: selectedcontact.email ,message: message, time :Date.now()  }),
         headers: {
           'Content-type': 'Application/json'
         },
@@ -104,17 +89,22 @@ export default function Chat_window(props) {
       console.log(result);
  }
 
+ const printsender=()=> { 
+  console.log(user.name); 
+  console.log(selectedcontact.name) ; 
+ }
+
   return (
     <div className='chat-window'>
         <div className='chat-banner'>
-           <h3>{name} </h3>
+           <h3>{user.name} </h3>
         </div>
 
         <div className='chat-box'> 
         <div className='received'>
            { 
             received.map((item)=> { 
-              if(item.from===name && item.to===sender){return(
+              if(item.from===selectedcontact.email && item.to=== user.email){return(
                 <div className='received-m' id={item.time}><p>{item.message}</p></div>
                )}
              
@@ -124,7 +114,7 @@ export default function Chat_window(props) {
         <div className= 'sent'>
         { 
             sent.map((item)=> { 
-              if(item.from===sender && item.to===name){return(
+              if(item.from===user.email && item.to===selectedcontact.email){return(
                 <div id={item.time} className='sent-m' ><p>{item.message}</p></div>
                )}
              
@@ -137,9 +127,8 @@ export default function Chat_window(props) {
         <form className='text-field'>
             <input type="text" placeholder='type your message here ' onChange={(event)=>setmessage(event.target.value)} ></input>
         </form>
-        <Button variant="contained" endIcon={<SendIcon />} onClick={sendmessage}>
-          Send
-        </Button>
+         <SendIcon color="primary"  onClick={printsender} />
+        
         </div>
     </div>
   )
