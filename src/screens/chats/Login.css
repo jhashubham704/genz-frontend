@@ -1,42 +1,59 @@
 .login-card { 
     width: 500px;
     height: 350px;
-    margin-left: 30%;
-    margin-right: 20%;
     margin-top: 123px;
+    justify-content: center;
     align-items: center;
-    box-sizing: border-box;
-    border-radius: 2%;
-    border-color: #D9DDDC;
-    box-shadow: 5px 5px 5px 5px #C7C6C1;
-    padding-top: 20px;
-    padding-left: 15px;
-    background-color: #548fad;
-    margin-bottom: 50px;
+    min-height: 90vh;
+    margin: 10% 0 0 30%;
     }
 
     .login-container { 
         padding-top: 50px;
-        background-color: #e6f0f4;
+
+        background-image: url("https://images7.alphacoders.com/370/370162.jpg") ; 
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+
     }
 
 .login-card h3{ 
-    font-family: 'Heebo', sans-serif;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
     color: #e6f0f4;
-    font-size: 35px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+}
+.login-card h2{ 
+    font-family: 'Poppins', sans-serif;
+    color: #e6f0f4;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    padding: 1px 0 10px;
+
 }
 
 .loginform { 
     font-family: 'Heebo', sans-serif;
     font-family: 'Roboto', sans-serif;
+    
 }
 
 .loginform input{ 
- height: 50px;
- width: 400px;
- border-color: #e6f0f4 ;
- background-color:  #e6f0f4;
- margin: 30px;
- margin-left: 30px;
+ height: 45px;
+ width: 87%;
+ border: none;
+ outline:none;
+ border-radius: 30px;
+ padding: 0 0 0 45px;
+ margin: 1px; 
+ background-color: rgba(255, 255, 255 , 0.5) ; ;
+}
+
+.buttons { 
+    padding: 3px;
+    display: flex;
 }

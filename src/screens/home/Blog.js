@@ -45,7 +45,7 @@ export default function Blog() {
         </CardActionArea>
         <CardActions>
           <Button size="small" color="primary" onClick={item.link}>
-            Read more
+            <a href={item.link}>Read more</a>
           </Button>
         </CardActions>
       </Card>

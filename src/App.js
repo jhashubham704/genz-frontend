@@ -29,7 +29,7 @@ export default function App() {
           <Route path='Logout' element={<Home/>} />
         </Route >
       </Routes>
-      
+      <Footer/>
     </div>
   )
 }

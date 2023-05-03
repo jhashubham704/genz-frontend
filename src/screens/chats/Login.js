@@ -51,15 +51,18 @@ export default function Login(props) {
       <div>
         <div className='login-container'>
           <div className='login-card'>
-            <h3>Please login to chat!</h3>
+            <h3>Have an Account?</h3>
+            <h2>Login</h2>
             <form className='loginform'>
               <input type="text" placeholder="email" onChange={(e) => { setTempemail(e.target.value) }} ></input>
               <br></br>
               <input type="password" placeholder="password" onChange={(e) => { setTemppass(e.target.value) }} ></input>
             </form>
-            <Button variant="contained" color="success" onClick={setLogindata}>login</Button>  <Link to="/register"  variant="contained" color="success" >Signup</Link>
+            <div className='buttons'>
+            <Button variant="contained" onClick={setLogindata}>login</Button>  <Link to="/register"  variant="contained" color="success" >Signup</Link>
+            </div>
+            
           </div>
-          <Footer />
         </div>
       </div> 
     

@@ -11,8 +11,8 @@ import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia';
 import Header from '../../../common/Header/Header';
 import Footer from '../../../common/Footer/Footer';
-import { width } from '@mui/system';
-
+import { width } from '@mui/system' 
+import {CCard , CCardBody, CCardImage, CCardTitle, CCardText, CButton, CCardHeader} from "@coreui/react"
 
 export default function Experts() {
   const [user, setUser] = useState([]);
@@ -30,42 +30,33 @@ export default function Experts() {
       <Header/>
       </div>
     <div className='experts-container'>
-     <h3> 
+     <h5> 
         Our List of Experts will help you resolve your queries related to stress Anxiety/Depression or any other 
         mental Issues you are currently going through. 
-
-     </h3> 
+     </h5> 
+     <div className="card-container">
        {user.map((item)=>{ 
         return(
           <div className='expert-card'>
-          <Card sx={{ display: 'flex' , width:'90%', margin:'5%' , height:'90%' ,backgroundcolor: '#e7e7e7'}}>
-            <CardMedia
-            component="img"
-            sx={{height:'100%' , width:'30%' ,  backgroundcolor: '#e7e7e7' ,display:"-ms-flexbox" }}
-            image= {item.profile}
-            alt="Profile photo"
-          />
-          <Box sx={{ display: 'flex', flexDirection: 'column' , backgroundColor: '#548fad' ,width:"70%" , height:'100%'}}>
-            <CardContent sx={{ flex: '1 0 auto' }}>
-              <Typography component="div" variant="h5">
-                {item.name}
-              </Typography>
-              <Typography variant="subtitle1" color="text.secondary" component="div">
-                {item.age}<br></br>
-                {item.email} <br></br>
-                {item.phone}<br></br>
-                {item.summary}
-              </Typography>
-           </CardContent>
-          </Box>
-          
-        </Card>
+          <CCard style={{ width: '300px', height: '350px' }}>
+  <CCardImage height={150} width={100} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa69_HGc_i3MXKCPZzCfAjBZC4bXJsn0rS0Ufe6H-ctZz5FbIVaPkd1jCPTpKwPruIT3Q&usqp=CAU" />
+  <CCardHeader>{item.name}</CCardHeader>
+  <CCardBody>
+    <CCardText class="text-wrap" >
+      {item.email}
+      {item.phone}
+      <p class="fs-6" >As human beings, we all face various challenges in life that can affect our mental health and wellbeing.  
+        This is where a psychology consultant expert comes in.</p>
+    </CCardText>
+    <CButton color="info" shape="rounded-pill">Info</CButton>
+  </CCardBody>
+</CCard>
+
         </div>
         )
         }) }
-
+</div>
     </div>
-    {/* <Footer/> */}
     </div>
   )
 }

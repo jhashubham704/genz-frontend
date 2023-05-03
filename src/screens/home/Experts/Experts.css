@@ -8,17 +8,25 @@
    background-color: #e7e7e7;
    
 }
-.experts-container h3{
-    font-size: 25px;
+.card-container { 
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+    padding: 2%;
+    height: 500px;
+}
+.experts-container h5{
+    font-size: 20px;
     width: 60%;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 70px;
 }
 .expert-card { 
-    width: 60%;
-    margin-left: 20%;
-    margin-right: 20%;
-    
-    background-color: #e7e7e7;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+expert-card p{ 
+    font-size: 10px;
 }
 

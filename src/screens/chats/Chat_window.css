@@ -8,23 +8,39 @@
 }
 
 .chat-banner { 
-    height: 95px;
-    background-color: #e7e7e7;
+    height: 120px;
+    background-color: #F8F8FF;
     padding-top: 35px;
     margin-left: 2px;
     box-sizing: border-box;
-    box-shadow: 5px 5px 5px #979797;
-    border: 1%;
-    width: 70%;
+    border-bottom: 2px #F5F5F5;
+    box-shadow: 0px 2px 0px #F5F5F5;
+    width: 90%;
     position: fixed;
     align-items: last baseline;
 }
+
+.chat-banner div { 
+    height: 40px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border-bottom: 1px;
+    box-shadow: 0px 1px 0px #4b8bab ; 
+    background-color: #4b8bab;
+    display: flex;
+    width: 90%;
+    position: fixed;
+}
+
+.closechat { 
+    float: right;
+    padding: 3px;
+}
 .chat-banner h3{ 
     color: black;
-    padding-top: 30px;
+    padding-top: 45px;
     padding-left: 20px;
-    font-family: 'Heebo', sans-serif;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Lato', sans-serif;
 }
 .chat-box{ 
     height: 400px; 
@@ -37,7 +53,7 @@
 .textbox{ 
     margin-top: 490px;
     position: fixed;
-    width: 80%;
+    width: 90%;
     display: flex;
 }
 
@@ -71,13 +87,15 @@
 }
 
 .text-field { 
-    width: 70%;
+    width: 95%;
+    margin-bottom: 5px;
 }
 .text-field input{ 
-    width: 90%;
+    width: 100%;
     background-color:#e7e7e7 ;
     margin-left: 2px;
     height: 30px ;
+    padding-bottom: 10px;
     border:#e7e7e7 ;
     border-radius: 2%;
     box-sizing: border-box;

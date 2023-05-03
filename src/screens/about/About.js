@@ -1,8 +1,28 @@
 import { Diversity1 } from '@mui/icons-material'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './about.css'
 import img from './about.jpg'
 export default function About() {
+
+  const[text,settext]= useState({ title:"", discription:""}); 
+
+  useEffect(()=> { 
+    const gettext = async()=> { 
+      let data = await fetch('http://localhost:8085/gettextdata', { 
+        method: 'post',
+        body: JSON.stringify({ Title: "About us" }),
+        headers: {
+          'Content-type': 'Application/json'
+        },
+      })
+      data = await data.json(); 
+      settext({title:data.Title , discription:data.Discription}); 
+      console.log(text) ; 
+    }
+    gettext(); 
+  },[])
+  
+
   return (
     <div className='div-main'>
       <div className='container'> 
@@ -11,15 +31,7 @@ export default function About() {
              <h3 className='heading'>About Us </h3> 
               </p>
             <p className='content'>
-         Chat and share your feelings with random people like you.
-         
-         Read stories of how people come out of anxiety and depression without any medication.
-         
-         Shop products/books that help you rewire your brain.
-         
-         Help other people like you and earn coins.
-         
-         Get guidance and help form expert psychologists, spiritual guru and meditators without any hustle.
+           {text.discription}
             </p>
         </div>
         <div className="div-img">

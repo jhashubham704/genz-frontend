@@ -43,7 +43,7 @@ export default function Chat_contacts(props) {
                 <h2>{item.name}</h2>
                 <p> {item.email}</p>
                 </div> 
-                <div><a href='/Chat_window'><ChatIcon color="success" onClick ={startChat(item)}></ChatIcon></a></div>
+                <div><a href='/Chat_window'><ChatIcon color="success" onClick ={()=>startChat(item)}></ChatIcon></a></div>
                 </div>
               )
              })

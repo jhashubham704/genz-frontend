@@ -7,7 +7,7 @@ import { Button } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import { borderColor } from '@mui/system';
 import { useContext ,usercontext } from 'react';
-
+import CancelIcon from '@mui/icons-material/Cancel';
 
 export default function Chat_window(props) {
 
@@ -34,7 +34,7 @@ export default function Chat_window(props) {
     fetchData()
 
     }
-, []);
+, [message,sent]);
  useEffect(()=> { 
    const api = "http://localhost:5002/readmessges";
   
@@ -42,7 +42,7 @@ export default function Chat_window(props) {
     try{ 
       let receivedmessages = await fetch(api,{ 
         method: 'post',
-        body: JSON.stringify({ from: user.email, to: selectedcontact.email }),
+        body: JSON.stringify({ from: selectedcontact.email, to: user.email }),
         headers: {
           'Content-type': 'Application/json'
         },
@@ -60,7 +60,7 @@ export default function Chat_window(props) {
     try{ 
       let sentmessages = await fetch(api,{ 
         method: 'post',
-        body: JSON.stringify({ from: selectedcontact.email, to: user.email }),
+        body: JSON.stringify({ from: user.email, to: selectedcontact.email }),
         headers: {
           'Content-type': 'Application/json'
         },
@@ -75,7 +75,7 @@ export default function Chat_window(props) {
    }
    fetchmessages(); 
    fetchsentmessages(); 
- },[]); 
+ },[message]); 
 
  const sendmessage = async()=> { 
     let result = await fetch('http://localhost:5002/sendmessage', {
@@ -89,15 +89,18 @@ export default function Chat_window(props) {
       console.log(result);
  }
 
- const printsender=()=> { 
-  console.log(user.name); 
-  console.log(selectedcontact.name) ; 
+ const closeChat=()=> { 
+   localStorage.removeItem('selected_user'); 
  }
 
   return (
     <div className='chat-window'>
-        <div className='chat-banner'>
-           <h3>{user.name} </h3>
+       <div className='chat-banner'>
+        <div classname='nav'>
+        <CancelIcon  onClick={closeChat} className='closechat'></CancelIcon>
+      </div>
+           <h3>{selectedcontact.name} </h3>
+           
         </div>
 
         <div className='chat-box'> 
@@ -127,7 +130,7 @@ export default function Chat_window(props) {
         <form className='text-field'>
             <input type="text" placeholder='type your message here ' onChange={(event)=>setmessage(event.target.value)} ></input>
         </form>
-         <SendIcon color="primary"  onClick={printsender} />
+         <SendIcon color="primary" onClick={sendmessage} />
         
         </div>
     </div>
