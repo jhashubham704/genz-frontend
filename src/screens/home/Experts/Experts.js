@@ -16,7 +16,7 @@ import {CCard , CCardBody, CCardImage, CCardTitle, CCardText, CButton, CCardHead
 
 export default function Experts() {
   const [user, setUser] = useState([]);
-  const fetchData = () => {
+  const fetchData = () =>  {
     return fetch("http://localhost:8085/experts")
           .then((response) => response.json())
           .then((data) => setUser(data));
@@ -38,8 +38,8 @@ export default function Experts() {
        {user.map((item)=>{ 
         return(
           <div className='expert-card'>
-          <CCard style={{ width: '300px', height: '350px' }}>
-  <CCardImage height={150} width={100} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa69_HGc_i3MXKCPZzCfAjBZC4bXJsn0rS0Ufe6H-ctZz5FbIVaPkd1jCPTpKwPruIT3Q&usqp=CAU" />
+          <CCard style={{ width: '300px', height: '400px' }}>
+  <CCardImage height={150} width={100} src="https://st3.depositphotos.com/19428878/37071/v/450/depositphotos_370714622-stock-illustration-businessman-icon-vector-male-avatar.jpg" />
   <CCardHeader>{item.name}</CCardHeader>
   <CCardBody>
     <CCardText class="text-wrap" >

@@ -8,7 +8,7 @@ export default function Chat_contacts(props) {
   const [contactslist,setcontactslist] = useState([]); 
 
   useEffect(() => {
-    const url = "http://localhost:5001/getcontacts";
+    const url = "http://localhost:8085/getcontacts";
 
     const fetchData = async () => {
       try {

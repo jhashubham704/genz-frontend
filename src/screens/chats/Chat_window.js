@@ -8,79 +8,70 @@ import SendIcon from '@mui/icons-material/Send';
 import { borderColor } from '@mui/system';
 import { useContext ,usercontext } from 'react';
 import CancelIcon from '@mui/icons-material/Cancel';
+import {io} from 'socket.io-client'; 
 
 export default function Chat_window(props) {
-
+   
+   const socket = io("http://localhost:5003") ; 
   let user = JSON.parse(localStorage.getItem('user'))  ; 
   let selectedcontact = JSON.parse(localStorage.getItem('selected_user')); 
   const [message,setmessage] = useState("") ; 
-  const [contactslist,setcontactslist] = useState([]); 
   const[received, setreceived] = useState([]);
   const[sent , setsent] = useState([]); 
+  const[chat_id , setchat_id] = useState(""); 
 
   useEffect(() => {
-    const url = "http://localhost:5001/getcontacts";
-
+   
+    const url = "http://localhost:5002/startchat";
+    let selected_email = selectedcontact.email ; 
+    let loggedin_email = user.email ; 
     const fetchData = async () => {
       try {
-        const data = await fetch(url);
-        const contactsdata = await data.json();
-        setcontactslist(contactsdata) ; 
+        const data = await fetch(url,{
+      method: 'Post',
+      body: JSON.stringify({users:[selected_email ,loggedin_email]}),
+      headers: {
+        'Content-type': 'Application/json'
+      }});
+        const chat = await data.json();
+         setchat_id(chat._id) ; 
+        console.log(chat);
+          ; 
       } catch (error) {
-        console.log("error", error);
+        console.log("error", error); 
       }
     };
-    
-    fetchData()
-
+     fetchData();
+     
     }
-, [message,sent]);
- useEffect(()=> { 
-   const api = "http://localhost:5002/readmessges";
-  
-   const fetchmessages = async()=> { 
-    try{ 
-      let receivedmessages = await fetch(api,{ 
-        method: 'post',
-        body: JSON.stringify({ from: selectedcontact.email, to: user.email }),
-        headers: {
-          'Content-type': 'Application/json'
-        },
-      }) ;
-      receivedmessages = await receivedmessages.json(); 
-      setreceived(receivedmessages) ; 
-      console.log(receivedmessages)
+, );
 
-    } catch (error) {
-        console.log("error", error);
+useEffect(()=> { 
+    socket.emit("join-room", chat_id) ; 
+    socket.on("new-message",message=> { 
+      setreceived(...message); 
+      console.log(message); 
+    })
+  const fetchmessages= async()=> { 
+    let messages= await fetch('http://localhost:5002/readmessages',{
+      method:'Post',
+      body: JSON.stringify({chat:chat_id}), 
+      headers: {
+        'Content-type': 'Application/json'
       }
-   }
+    })
+    let data  = await messages.json() ;
+    console.log(messages) ; 
+  }
 
-   const fetchsentmessages = async()=> { 
-    try{ 
-      let sentmessages = await fetch(api,{ 
-        method: 'post',
-        body: JSON.stringify({ from: user.email, to: selectedcontact.email }),
-        headers: {
-          'Content-type': 'Application/json'
-        },
-      }) ;
-      sentmessages = await sentmessages.json();
-      setsent(sentmessages) ;  
-      console.log(sent)
-
-    } catch (error) {
-        console.log("error", error);
-      }
-   }
-   fetchmessages(); 
-   fetchsentmessages(); 
- },[message]); 
+  fetchmessages()
+},[chat_id])
 
  const sendmessage = async()=> { 
+    socket.emit("new-message",message) ; 
     let result = await fetch('http://localhost:5002/sendmessage', {
         method: 'Post',
-        body: JSON.stringify({ from: user.email, to: selectedcontact.email ,message: message, time :Date.now()  }),
+        body: JSON.stringify({ chat:chat_id ,message: message, time :Date.now()  }),
         headers: {
           'Content-type': 'Application/json'
         },
@@ -107,10 +98,9 @@ export default function Chat_window(props) {
         <div className='received'>
            { 
             received.map((item)=> { 
-              if(item.from===selectedcontact.email && item.to=== user.email){return(
-                <div className='received-m' id={item.time}><p>{item.message}</p></div>
-               )}
-             
+              return(
+                <div className='received-m' ><p>{item}</p></div>
+               )
             })
            }
         </div>

@@ -21,7 +21,7 @@ export default function Register(props) {
 
      const setLogindata=async ()=> { 
 
-      let result = await fetch('http://localhost:5001/register' , { 
+      let result = await fetch('http://localhost:8085/register' , { 
         method:'Post',
         body:JSON.stringify({name:tempname,email:tempemail,password:temppass,phone:tempnumber}) ,
         headers:{ 
@@ -38,7 +38,7 @@ export default function Register(props) {
     <div>
          <div className='register-container'>
     <div className='register-card'>
-        <h3>Please login to chat!</h3>
+        <h2>Please login to chat!</h2>
         <form className='registerform'> 
             <input type="text" placeholder="name" onChange={(e)=> {setTempname(e.target.value)}}></input>
             <br></br>
@@ -48,7 +48,8 @@ export default function Register(props) {
             <br></br>
             <input type="number" placeholder="phone-number" onChange={(e)=> {setTempnumber(e.target.value)}} ></input>
         </form>
-        <Button variant="contained" color="success" onClick={setLogindata} href='chats'>Signup</Button>
+        <div className='buttons'> <Button variant="contained"  onClick={setLogindata} href='chats'>Signup</Button> </div>
+        
     </div>
       <Footer/>
     </div>

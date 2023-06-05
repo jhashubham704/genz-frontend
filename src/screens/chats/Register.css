@@ -1,23 +1,20 @@
 .register-card { 
     width: 500px;
     height: 340px;
-    margin-left: 30%;
-    margin-right: 20%;
     margin-top: 123px;
+    justify-content: center;
     align-items: center;
-    box-sizing: border-box;
-    border-radius: 2%;
-    border-color: #D9DDDC;
-    box-shadow: 5px 5px 5px 5px #C7C6C1;
-    padding-top: 2px;
-    padding-left: 15px;
-    background-color: #548fad;
-    margin-bottom: 50px;
+    min-height: 90vh;
+    margin: 10% 0 0 30%;
     }
 
     .register-container { 
         padding-top: 50px;
-        background-color: #e6f0f4;
+        background-image: url("https://images7.alphacoders.com/370/370162.jpg") ; 
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
     }
 
 .register-card h3{ 
@@ -26,17 +23,36 @@
     color: #e6f0f4;
     font-size: 35px;
 }
+.register-card h2{ 
+    font-family: 'Poppins', sans-serif;
+    color: #e6f0f4;
+    font-size: 35px;
+    display: flex;
+    justify-content: center;
+    padding: 0px 5px 5px 10px;
+
+}
 
 .registerform { 
-    font-family: 'Heebo', sans-serif;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .registerform input{ 
- height: 50px;
- width: 400px;
- border-color: #e6f0f4 ;
- background-color:  #e6f0f4;
- margin: 5px;
- margin-left: 30px;
+    height: 45px;
+    width: 87%;
+    border: none;
+    outline:none;
+    border-radius: 30px;
+    padding: 0 0 0 45px;
+    margin: 1px; 
+    background-color: rgba(255, 255, 255 , 0.5) ; ;
+   
+}
+.buttons { 
+    padding: 3px;
+    display: flex;
+    margin-left: 30%;
+    font-family: 'Poppins', sans-serif;
+    color: #e6f0f4;
+    font-size: 30px;
 }

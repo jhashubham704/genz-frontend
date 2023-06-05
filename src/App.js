@@ -11,25 +11,22 @@ import Login from './screens/chats/Login'
 import Chat_window from './screens/chats/Chat_window'
 import Chat_contacts from './screens/chats/Chat_contacts'
 import Privaterouter from './Privaterouter'
-
+import Profile from './Profile/Profile'
+import './App.css'
 export default function App() {
 
   return (
-    <div className='App' style={{width:"100%" , height: "100%" ,display:"block"}}>
+    <div className='App'>
       <Header/>
        <Routes>
         <Route path="/" element={ <Home/> } />
-        <Route path="register" element={ <Register/> } />
+        <Route path="register" element={ <iframe src='http://localhost:3000/' width={"1020"} height={"1000"} padding-top={35} className='iframe'></iframe> } />
         <Route path="experts" element={ <Experts/> } />
-        <Route path="Login" element={ <Chats /> } />
-        <Route element={<Privaterouter/>} >
-          <Route path="chats" element={ <Chat_contacts/> } />
-          <Route path="Contacts" element={<Chat_contacts />}/>
-          <Route path="Chat_window" element={ <Chat_window/> } />
-          <Route path='Logout' element={<Home/>} />
-        </Route >
+        <Route path="Chats" element={ <iframe src='http://localhost:3000/'></iframe> } /> 
+        <Route path="Contacts" element={ <iframe src='http://localhost:3000/'></iframe> } /> 
+        <Route path="Login" element={ <iframe src='http://localhost:3000/'></iframe> } /> 
       </Routes>
-      <Footer/>
+      <Footer/>n
     </div>
   )
 }

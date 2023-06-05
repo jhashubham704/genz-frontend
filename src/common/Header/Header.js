@@ -18,7 +18,7 @@ export default function Header() {
         <div className='head-main'>
             <div className="head-lf">
   
-                <img src= {logo}  className='logo' alt='logo'></img>
+                <img src= {logo} className='logo' alt='logo' ></img>
                  
             </div>
             <div className="head-mid">
@@ -30,7 +30,7 @@ export default function Header() {
               </ul>
             </div>
             <div className="head-rt">
-              <img src={profile} className="logo" alt='profile-picture'></img>
+             <a href="/Profile"><img src={profile} className="logo" alt='profile-picture' ></img></a> 
               {console.log(window.location.pathname)}
             </div>
         </div>

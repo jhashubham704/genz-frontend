@@ -1,11 +1,13 @@
 .experts-container { 
    display: block;
-   height: 40%;
-   width: 100% ;
    padding: 2%;
    font-family: 'Nunito Sans', sans-serif;
    font-size: 20px;
-   background-color: #e7e7e7;
+   background-image: url("https://cdn.wallpapersafari.com/43/42/IwWBH3.jpg") ; 
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
    
 }
 .card-container { 
@@ -17,10 +19,13 @@
     height: 500px;
 }
 .experts-container h5{
-    font-size: 20px;
-    width: 60%;
-    margin: auto;
-    margin-top: 70px;
+    padding: 5px;
+    margin-top: 50px ; 
+    font-family: 'Poppins', sans-serif;
+    color: #e6f0f4;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
 }
 .expert-card { 
     margin-left: 20px;
